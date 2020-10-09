@@ -13,7 +13,13 @@ exports.up = function(knex) {
             tbl.string("name").notNullable().unique();
             tbl.string("description");
         })
-  
+
+        .createTable("tasks", tbl => {
+            tbl.increments();
+            tbl.string("description").nutNullable();
+            tbl.string("notes");
+            tbl.boolean("completed");
+        });
 };
 
 exports.down = function(knex) {
